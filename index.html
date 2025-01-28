@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homenaje&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="assets/js/scripts.js" defer></script>
+    <title>Text Inspector</title>
+</head>
+<body>
+<header>
+    <h1>Análise de texto</h1>
+</header>
+<main>
+    <div id="options">
+        <span id="optionsTitle">Opções</span>
+        <div id="tripleInputWrapper">
+            Tamanho mínimo das palavras consideradas:
+            <div class="radio-inputTriple">
+                <label>
+                    <input type="radio" id="tripleValue1" name="triple-radio" value="1" checked>
+                    <span>1</span>
+                </label>
+                <label>
+                    <input type="radio" id="tripleValue2" name="triple-radio" value="2">
+                    <span>2</span>
+                </label>
+                <label>
+                    <input type="radio" id="tripleValue3" name="triple-radio" value="3">
+                    <span>3</span>
+                </label>
+                <span class="selectionTriple"></span>
+            </div>
+        </div>
+
+        <div id="doubleInputWrapper">
+            Diferenciar palavras pela acentuação:
+            <div class="radio-inputDouble">
+                <label>
+                    <input type="radio" id="doubleValue1" name="double-radio" value="true" checked>
+                    <span>Sim</span>
+                </label>
+                <label>
+                    <input type="radio" id="doubleValue2" name="double-radio" value="false">
+                    <span>Não</span>
+                </label>
+                <span class="selectionDouble"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="textArea">
+        <p>Digite abaixo o texto que será processado:</p>
+        <textarea id="myText"></textarea>
+    </div>
+
+    <div id="buttonsWrapper">
+        <button class="mainButton" id="processButton">
+            <span class="button_top"> Processar </span>
+          </button>
+
+          <button class="mainButton" id="cleanButton">
+            <span class="button_top"> Limpar </span>
+          </button>
+    </div>
+
+    <div id="fileSelectionWrapper">
+        Ou selecione um arquivo .txt/.pdf:
+        <button class="mainButton" id="uploadButton">
+            <span class="button_top"><i class="fa-solid fa-upload"></i></span>
+          </button>
+        <input type="file" id="myTextFile" accept=".txt, .pdf" style="display: none;">
+    </div>
+</main>
+
+<section id="resultSection">
+<h2>Resultados</h2>
+</section>
+</body>
+</html>

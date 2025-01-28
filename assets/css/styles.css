@@ -1,0 +1,252 @@
+:root{
+    --primary-color: #484A4C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Homenaje";
+    font-size: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#options {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid  black;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 1;
+    margin-bottom: 1rem;
+}
+
+#optionsTitle {
+    position: absolute;
+    top:-0.5rem;
+    padding-inline: 0.5rem;
+    background-color: white;
+    z-index: 2;
+}
+
+#tripleInputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#doubleInputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#textArea textarea{
+    min-width: 50vw;
+    min-height: 10rem;
+    padding: 1rem;
+    resize: none;
+    border: 1px solid  black;
+    border-radius: 0.5rem;
+    margin: 0.3rem 0;
+}
+
+#buttonsWrapper {
+    margin-bottom: 0.5rem;
+}
+
+#fileSelectionWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#resultSection {
+    display: flex;
+    flex-direction: column;
+    visibility:hidden;
+    padding: 2rem;
+}
+
+#resultSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Radio Buttons */
+
+.radio-inputTriple input {
+    display: none;
+}
+
+.radio-inputTriple {
+    --container_width: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000000;
+    width: var(--container_width);
+    overflow: hidden;
+    border: 1px solid rgba(53, 52, 52, 0.226);
+}
+
+.radio-inputTriple label {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-weight: 600;
+}
+
+.selectionTriple {
+    position: absolute;
+    height: 100%;
+    width: calc(var(--container_width) / 3);
+    z-index: 0;
+    left: 0;
+    top: 0;
+    background-color: var(--primary-color);
+    transition: transform 0.15s ease;
+    display: block;
+}
+
+.radio-inputTriple label:has(input:checked) {
+    color: white;
+}
+
+.radio-inputTriple label:nth-of-type(1):has(input:checked) ~ .selectionTriple {
+    transform: translateX(calc(var(--container_width) * 0 / 3));
+}
+
+.radio-inputTriple label:nth-of-type(2):has(input:checked) ~ .selectionTriple {
+    transform: translateX(calc(var(--container_width) * 1 / 3));
+}
+
+.radio-inputTriple label:nth-of-type(3):has(input:checked) ~ .selectionTriple {
+    transform: translateX(calc(var(--container_width) * 2 / 3));
+}
+
+.radio-inputDouble input {
+    display: none;
+}
+
+.radio-inputDouble {
+    --container_width: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000000;
+    width: var(--container_width);
+    overflow: hidden;
+    border: 1px solid rgba(53, 52, 52, 0.226);
+}
+
+.radio-inputDouble label {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-weight: 600;
+}
+
+.selectionDouble {
+    position: absolute;
+    height: 100%;
+    width: calc(var(--container_width) / 2);
+    z-index: 0;
+    left: 0;
+    top: 0;
+    background-color: var(--primary-color);
+    transition: transform 0.15s ease;
+}
+
+.radio-inputDouble label:first-of-type:has(input:checked) ~ .selectionDouble {
+    transform: translateX(calc(var(--container_width) * 0 / 2));
+}
+
+.radio-inputDouble label:last-of-type:has(input:checked) ~ .selectionDouble {
+    transform: translateX(calc(var(--container_width) * 1 / 2));
+}
+
+.radio-inputDouble label:has(input:checked) {
+    color: #fff;
+}
+
+/* Buttons */
+
+.mainButton {
+--button_radius: 0.75em;
+--button_color: white;
+--button_outline_color: var(--primary-color);
+font-size: 17px;
+font-weight: bold;
+border: none;
+cursor: pointer;
+border-radius: var(--button_radius);
+background: var(--button_outline_color);
+}
+
+.mainButton span {
+    color: black;
+}
+
+.button_top {
+display: block;
+box-sizing: border-box;
+border: 2px solid var(--button_outline_color);
+border-radius: var(--button_radius);
+padding: 0.75em 1.5em;
+background: var(--button_color);
+color: var(--button_outline_color);
+transform: translateY(-0.2em);
+transition: transform 0.1s ease;
+}
+
+.mainButton:hover .button_top {
+transform: translateY(-0.33em);
+}
+
+.mainButton:active .button_top {
+transform: translateY(0);
+}
+
+#uploadButton .button_top{
+    padding: 0.75em 1em
+}
