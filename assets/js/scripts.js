@@ -14,11 +14,11 @@ uploadButton.addEventListener("click", () => {
 fileInput.addEventListener("change", (event) => {
     const file = fileInput.files[0];
     if (file) {
-      const allowedExtensions = ['txt', 'pdf'];
-      const fileExtension = file.name.split('.').pop().toLowerCase();
+      const allowedExtensions = ["txt"];
+      const fileExtension = file.name.split(".").pop().toLowerCase();
       if (!allowedExtensions.includes(fileExtension)) {
-        alert('Formato de arquivo não suportado!');
-        event.target.value = '';
+        alert("Formato de arquivo não suportado!");
+        event.target.value = "";
       }
       else{
         alert(`Arquivo selecionado: ${file.name}`);
@@ -36,6 +36,3 @@ processButton.addEventListener("click",()=>{
   const accentSensitive = document.querySelector('input[name="double-radio"]:checked').value;
   analysis(text,minLength,accentSensitive,resultSection);
 })
-
-
-
