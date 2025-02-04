@@ -31,7 +31,7 @@ export function renderTotalAndUniqueChart (totalWordsQuantities, uniqueWordsQuan
           stacked: false, // Não empilhar as barras
           title: {
             display: true,
-            text: "Número de letras"
+            text: "Quantidade de letras"
           }
         },
         y: {
@@ -64,7 +64,7 @@ export function renderLetterFrequency(lettersFrequency) {
           labels: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", 
             "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "ç"],
           datasets: [{
-              label: "Ocorrência de Letras",
+              label: "Ocorrências da Letra",
               data: lettersFrequency,
               backgroundColor: "rgba(255,159,64,0.2)",
               borderColor: "rgb(255, 159, 64)",
@@ -78,14 +78,14 @@ export function renderLetterFrequency(lettersFrequency) {
                   beginAtZero: true,
                   title: {
                       display: true,
-                      text: "Letras"
+                      text: "Letra"
                   }
               },
               y: {
                   beginAtZero: true,
                   title: {
                       display: true,
-                      text: "Ocorrência"
+                      text: "Ocorrências"
                   },
                   ticks: {callback: showOnlyIntegers}
               }
@@ -94,9 +94,32 @@ export function renderLetterFrequency(lettersFrequency) {
   });
 }
 
+export function renderWordsFrequency(wordsList,occurrencesList){
+  const ctx = document.getElementById("wordsFrequency").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: wordsList, 
+      datasets: [{
+        label: "Ocorrências da Palavra",
+        data: occurrencesList, 
+        backgroundColor: "rgba(255, 99, 132, 0.2)", 
+        borderColor: "rgb(255, 99, 132)", 
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        x:{title: {display: true,text: "Palavras"}},
+        y: {beginAtZero: true, ticks: {callback: showOnlyIntegers},title: {display: true,text: "Ocorrências"}}
+      }
+    }
+  });
+}
+
 function showOnlyIntegers(value) {
   if (Number.isInteger(value)) {
       return value;
   }
-  return '';
+  return "";
 }

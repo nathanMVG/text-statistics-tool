@@ -1,4 +1,4 @@
-import {analysis} from "./utils.js";
+import {analysis, fileInputValidator} from "./utils.js";
 
 const uploadButton = document.querySelector("#uploadButton");
 const fileInput = document.querySelector("#myTextFile");
@@ -11,23 +11,11 @@ uploadButton.addEventListener("click", () => {
     fileInput.click();
 });
 
-fileInput.addEventListener("change", (event) => {
-    const file = fileInput.files[0];
-    if (file) {
-      const allowedExtensions = ["txt"];
-      const fileExtension = file.name.split(".").pop().toLowerCase();
-      if (!allowedExtensions.includes(fileExtension)) {
-        alert("Formato de arquivo não suportado!");
-        event.target.value = "";
-      }
-      else{
-        alert(`Arquivo selecionado: ${file.name}`);
-      }
-    }
-});
+fileInput.addEventListener("change", fileInputValidator);
 
 cleanButton.addEventListener("click",()=>{
   textArea.value="";
+  textArea.focus();
 })
 
 processButton.addEventListener("click",()=>{
